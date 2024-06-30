@@ -27,6 +27,9 @@ export class Database {
   selectById(table, id) {
     const data = this.#database[table] ?? [];
     const row = data.find((row) => row.id === id);
+    if (!row) {
+      return null;
+    }
     return row;
   }
 
